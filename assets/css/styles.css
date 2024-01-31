@@ -1,0 +1,74 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #8bc34a; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .producto {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 200px; 
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); 
+  }
+  
+  .producto img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .producto h2 {
+    font-size: 18px;
+    color: #000000;
+    margin: 10px 0;
+  }
+  
+  .precio {
+    color: #000000;
+    margin: 10px 0;
+  }
+  
+  .cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  
+  .boton-cantidad {
+    background-color: #ffa000;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .boton-cantidad:focus {
+    outline: none;
+  }
+  
+  .boton-cantidad:active {
+    background-color: #c77800;
+  }
+  
+  #cantidad {
+    border: none;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px;
+    width: 40px;
+  }
+  
+  #cantidad:focus {
+    outline: none;
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Laptops</title>
+<link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+<div class="producto">
+  <img src="./assets/img/compu.jpg" alt="Laptop Gamer AMD">
+  <h2>Laptop Gamer AMD</h2>
+  <p class="precio">Precio base: $<span id="precio-base">400000</span></p>
+    <div class="cantidad">
+    <label for="cantidad">Cantidad:</label>
+    <button class="boton-cantidad menos">-</button>
+    <input type="number" id="cantidad" value="0" readonly>
+    <button class="boton-cantidad mas">+</button>
+    </div>
+    <p>Total: $<span id="precio-total">0</span></p>
+    <div id="mensaje-confirmacion"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  const cantidadInput = document.querySelector('#cantidad');
+  const botonMas = document.querySelector('.mas');
+  const botonMenos = document.querySelector('.menos');
+  const precioBase = parseFloat(document.querySelector('#precio-base').textContent);
+  const precioTotalSpan = document.querySelector('#precio-total');
+  const mensajeConfirmacion = document.querySelector('#mensaje-confirmacion');
+
+  const actualizarPrecioTotal = () => {
+    const cantidad = parseInt(cantidadInput.value);
+    const precioTotal = cantidad * precioBase;
+    precioTotalSpan.textContent = precioTotal.toFixed(2);
+    actualizarMensajeConfirmacion(cantidad);
+  };
+
+  const actualizarMensajeConfirmacion = (cantidad) => {
+    if(cantidad > 0) {
+      mensajeConfirmacion.innerHTML = `<p>Añadiste ${cantidad} producto(s) al carrito.</p>`;
+    } else {
+      mensajeConfirmacion.innerHTML = '<p>Añade productos al carrito.</p>';
+    }
+  };
+
+  botonMas.addEventListener('click', () => {
+    cantidadInput.value = parseInt(cantidadInput.value) + 1;
+    actualizarPrecioTotal();
+  });
+
+  botonMenos.addEventListener('click', () => {
+    const cantidadActual = parseInt(cantidadInput.value);
+    if (cantidadActual > 0) {
+      cantidadInput.value = cantidadActual - 1;
+      actualizarPrecioTotal();
+    }
+  });
+
+  actualizarPrecioTotal();
+});
+
+
+
+</script>
+
+</body>
+</html>
